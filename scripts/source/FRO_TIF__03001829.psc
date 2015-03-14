@@ -7,20 +7,22 @@ Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 Float CurrentRP = RS.GetRelationshipPoints(akSpeaker)
+Float CD = 4.0
 
 PlayerRef.RemoveItem(Gold, 5)
 akspeaker.AddItem(Gold, 5)
-BeggarReceivedGold.SetValueInt(5)
 FavorJobsBeggarsAbility.Cast(PlayerRef, PlayerRef)
 FavorJobsBeggarsMessage.Show()
 
 If(CurrentRP < 150)
-	If(RS.WouldGiveRP(akSpeaker, 5 * JsonUtil.GetFloatValue("FavorReturnOverhaul", "RPPerGold") + RS.GetRelationshipPoints(akSpeaker)) >= 150)
+	If(RS.WouldGiveRP(akSpeaker, JsonUtil.GetFloatValue("FavorReturnOverhaul", "RPPerGold") + RS.GetRelationshipPoints(akSpeaker)) >= 150)
 		RS.SetRelationshipPoints(akSpeaker, 150)
 	Else
-		RS.ModRelationshipPoints(akSpeaker, 5 * JsonUtil.GetFloatValue("FavorReturnOverhaul", "RPPerGold"))
+		RS.ModRelationshipPoints(akSpeaker, JsonUtil.GetFloatValue("FavorReturnOverhaul", "RPPerGold"))
 	EndIf
 EndIf
+
+BeggarDialogueCD.SetValue(Utility.GetCurrentGameTime() +  CD / 24)
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -29,7 +31,7 @@ EndFunction
 APPS_FW_Relationship Property RS Auto
 
 Actor Property PlayerRef Auto
-GlobalVariable Property BeggarReceivedGold Auto
+GlobalVariable Property BeggarDialogueCD Auto
 MiscObject Property Gold Auto
 Spell Property FavorJobsBeggarsAbility Auto
 Message Property FavorJobsBeggarsMessage Auto
