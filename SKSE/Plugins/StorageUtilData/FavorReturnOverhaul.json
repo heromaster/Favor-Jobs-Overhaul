@@ -1,0 +1,23 @@
+
+{
+	"float" : 
+	{
+		"rppercabbage" : 0.5,
+		"rpperdrink" : 20,
+		"rpperfirewood" : 4,
+		"rppergold" : 2,
+		"rppergourd" : 0.25,
+		"rpperleek" : 0.25,
+		"rpperminercorundum" : 16,
+		"rpperminergold" : 40,
+		"rppermineriron" : 1.6,
+		"rpperminermalachite" : 24,
+		"rpperminermoonstone" : 24,
+		"rpperminerorichalcum" : 16,
+		"rpperminerquicksilver" : 20,
+		"rpperminersilver" : 20,
+		"rppernirnroot" : 2.5,
+		"rpperpotatoe" : 0.25,
+		"rpperwheat" : 1.25
+	}
+}
